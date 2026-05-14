@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# uniFlow — Smart Timetable Generator
+
+An intelligent timetable scheduling system built with Next.js that automatically generates conflict-free academic timetables for university departments and student groups.
+
+The system uses scheduling algorithms and constraint-based logic to allocate courses, lecturers, venues, and time slots while preventing clashes across groups, lecturers, and classrooms.
+
+## Features
+
+- Generate automated university timetables
+- Prevent lecturer scheduling conflicts
+- Prevent venue/time clashes
+- Department and group-based scheduling
+- Dynamic course allocation
+- Structured weekly timetable generation
+- Responsive and clean interface
+- Local persistence for generated schedules
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- React State / Local Storage
+
+## Scheduling Logic
+
+The timetable engine intelligently:
+
+- assigns available time slots
+- allocates free venues
+- validates lecturer availability
+- avoids overlapping schedules
+- generates optimized weekly class structures
+
+## Project Structure
+
+Key folders and files:
+
+```
+src/
+├── app/                # Next.js app routes and pages
+├── components/         # UI components (forms, timetable views)
+├── lib/                # Algorithm and storage utilities
+│   ├── algorithm/
+│   └── storage/
+├── constants/          # Days, timeslots, venues
+├── types/              # TypeScript types
+└── hooks/              # Reusable hooks & mock data
+```
 
 ## Getting Started
 
-First, run the development server:
+Prerequisites: Node.js (16+), npm or pnpm.
+
+Install dependencies:
+
+```bash
+npm install
+# or
+pnpm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Mock Data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The repo includes mock data used during development:
 
-## Learn More
+- `src/hooks/mockCourses.ts` — sample course list
+- `src/data/mockTimetable.ts` — sample timetable entries
 
-To learn more about Next.js, take a look at the following resources:
+## Scheduling Engine (Overview)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The core scheduling flow (simplified):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Collect courses, lecturers, groups, and constraints
+2. Find available timeslots and venues
+3. Assign courses to slots while checking conflicts
+4. Persist generated timetables to local storage
 
-## Deploy on Vercel
+Algorithm modules are in `src/lib/algorithm` and storage helpers in `src/lib/storage`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Inspiration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built to simplify timetable management in academic institutions and explore real-world scheduling algorithms, resource allocation, and constraint-solving systems.
+
+## Future Improvements
+
+- AI-assisted timetable optimization
+- PostgreSQL integration
+- Export to PDF
+- Lecturer dashboard
+- Multi-department scheduling
+- Admin authentication
+- Drag-and-drop timetable editor
+
+## Contributing
+
+Contributions are welcome. Open an issue or submit a pull request with a clear description of the change.
+
+## License
+
+This project is currently unlicensed. Add a license if you intend to publish or share the code.
