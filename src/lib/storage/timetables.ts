@@ -1,22 +1,17 @@
-import { TimetableEntry, SavedTimetable } from "../../types";
+import { SavedTimetable } from "../../types";
 
 const TIMETABLES_KEY = "timetables";
 
-export async function saveTimetable(
-  department: string,
-  group: string,
-  entries: TimetableEntry[],
-): Promise<void> {
+export async function saveTimetable(timetable: SavedTimetable): Promise<void> {
   if (typeof window !== "undefined") {
     const existingTimetables = await getTimetables();
-    const newTimetable: SavedTimetable = { department, group, entries };
 
-    // Remove any existing timetable with the same department and group
     const updatedTimetables = existingTimetables.filter(
-      (t) => !(t.department === department && t.group === group),
+      (t) =>
+        !(t.department === timetable.department && t.group === timetable.group),
     );
 
-    updatedTimetables.push(newTimetable);
+    updatedTimetables.push(timetable);
     localStorage.setItem(TIMETABLES_KEY, JSON.stringify(updatedTimetables));
   }
 }

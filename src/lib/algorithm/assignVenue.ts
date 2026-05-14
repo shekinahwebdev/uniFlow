@@ -3,10 +3,10 @@ import { TimetableEntry } from "../../types";
 
 export function assignVenue(
   entry: TimetableEntry,
-  existing: TimetableEntry[],
+  globalEntries: TimetableEntry[],
 ): TimetableEntry {
   const usedVenues = new Set(
-    existing
+    globalEntries
       .filter((e) => e.day === entry.day && e.timeslot === entry.timeslot)
       .map((e) => e.venue),
   );

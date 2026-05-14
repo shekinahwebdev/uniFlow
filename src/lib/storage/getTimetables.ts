@@ -1,11 +1,15 @@
-import { TimetableEntry } from "../../types";
+import { SavedTimetable, TimetableEntry } from "../../types";
 
-export async function getTimetables(): Promise<TimetableEntry[]> {
+export async function getTimetables(): Promise<SavedTimetable[]> {
   if (typeof window !== "undefined") {
-    const raw = localStorage.getItem("timetables");
-    return raw ? JSON.parse(raw) : [];
+    // const raw = localStorage.getItem("timetables");
+    // return raw ? JSON.parse(raw) : [];
+    return [];
   }
-  return [];
+  const data = localStorage.getItem("timetables");
+  return data ? JSON.parse(data) : [];
+
+  //   return [];
 }
 
 export default getTimetables;

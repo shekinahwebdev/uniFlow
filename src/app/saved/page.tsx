@@ -66,7 +66,7 @@ export default function SavedTimetablesPage() {
             ))}
         </div>
       )}
-      <Link href="/generate">Generate New Timetable</Link>
+      <Link href="/">Back to Home</Link>
     </main>
   );
 }

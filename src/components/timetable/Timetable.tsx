@@ -35,9 +35,6 @@ export default function Timetable() {
           setEntries(savedTimetable.entries);
         }
       } else {
-        // This part might need adjustment depending on how you handle newly generated timetables
-        // For now, let's assume it's handled and stored before navigating here.
-        // Or, we can fetch it from a temporary storage if needed.
         const tempTimetableRaw = sessionStorage.getItem("temp_timetable");
         if (tempTimetableRaw) {
           setEntries(JSON.parse(tempTimetableRaw));
@@ -55,7 +52,7 @@ export default function Timetable() {
       <h1>
         {queryDepartment} Group {queryGroup} Timetable
       </h1>
-      <Link href="/generate">Go to Generate Page</Link>
+      {/* <Link href="/generate">Go to Generate Page</Link> */}
       <Link href="/saved">View All Saved Timetables</Link>
       {isLoading ? (
         <p>Loading timetable...</p>
