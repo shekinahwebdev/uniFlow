@@ -11,15 +11,18 @@ export function assignVenue(
       .map((e) => e.venue),
   );
 
-  const availableVenue = VENUES.find((v) => !usedVenues.has(v));
+  const availableVenues = VENUES.filter((v) => !usedVenues.has(v));
 
-  if (!availableVenue) {
+  if (availableVenues.length === 0) {
     throw new Error("No available venue for this slot");
   }
 
+  const selectedVenue =
+    availableVenues[Math.floor(Math.random() * availableVenues.length)];
+
   return {
     ...entry,
-    venue: availableVenue,
+    venue: selectedVenue,
   };
 }
 

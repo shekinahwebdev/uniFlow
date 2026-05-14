@@ -8,15 +8,14 @@ export function checkConflicts(
     const sameDay = entry.day === newEntry.day;
     const sameTimeslot = entry.timeslot === newEntry.timeslot;
 
-    if (sameDay && sameTimeslot) {
-      const lectureConflict =
-        entry.course.lecturer === newEntry.course.lecturer;
-      const venueConflict = entry.venue === newEntry.venue;
-      const groupConflict = entry.course.group === newEntry.course.group;
+    if (!sameDay || !sameTimeslot) continue;
 
-      if (lectureConflict || venueConflict || groupConflict) {
-        return true;
-      }
+    const lectureConflict = entry.course.lecturer === newEntry.course.lecturer;
+    const venueConflict = entry.venue === newEntry.venue;
+    const groupConflict = entry.course.group === newEntry.course.group;
+
+    if (lectureConflict || venueConflict || groupConflict) {
+      return true;
     }
   }
 

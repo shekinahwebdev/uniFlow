@@ -15,18 +15,11 @@ export function validateSchedule(entries: TimetableEntry[]): boolean {
 
       if (!sameSlot) continue;
 
-      // lecturer clash
-      if (a.course.lecturer === b.course.lecturer) {
-        return false;
-      }
+      const lectureConflict = a.course.lecturer === b.course.lecturer;
+      const venueConflict = a.venue === b.venue;
+      const groupConflict = a.course.group === b.course.group;
 
-      // group clash
-      if (a.course.group === b.course.group) {
-        return false;
-      }
-
-      // venue clash
-      if (a.venue === b.venue) {
+      if (lectureConflict || venueConflict || groupConflict) {
         return false;
       }
     }
