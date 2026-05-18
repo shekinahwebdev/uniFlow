@@ -1,142 +1,110 @@
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-lg);
+	min-height: calc(100vh - var(--spacing-lg));
 }
 
 .main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+	display: flex;
+	flex: 1;
+	width: 100%;
+	max-width: 600px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-xl);
+	text-align: center;
 }
 
 .intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-md);
 }
 
 .intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+	font-size: 2.5rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
 }
 
 .intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+	font-size: 1.125rem;
+	color: var(--color-text-secondary);
+	max-width: 90%;
 }
 
 .ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--spacing-md);
+	width: 100%;
+	max-width: 500px;
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+.ctaButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 44px;
+	padding: 0 var(--spacing-md);
+	font-size: 1rem;
+	font-weight: 500;
+	border-radius: var(--border-radius-lg);
+	border: 1px solid var(--color-border);
+	background-color: var(--color-surface);
+	color: var(--color-text-primary);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	text-decoration: none;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.ctaButton:hover {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+	color: white;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.ctaButton:active {
+	transform: translateY(0);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.subtitle {
+	color: var(--color-text-tertiary);
+	font-size: 0.95rem;
+	margin-top: var(--spacing-lg);
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
+@media (max-width: 640px) {
+	.main {
+		max-width: 100%;
+		padding: var(--spacing-md);
+	}
 
-  .intro {
-    gap: 16px;
-  }
+	.intro h1 {
+		font-size: 2rem;
+	}
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+	.ctas {
+		grid-template-columns: 1fr;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.page {
+	--background: #000;
+	--foreground: #000;
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+	--text-primary: #ededed;
+	--text-secondary: #999;
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+	--button-primary-hover: #ccc;
+	--button-secondary-hover: #1a1a1a;
+	--button-secondary-border: #1a1a1a;
 }

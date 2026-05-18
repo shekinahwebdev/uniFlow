@@ -1,27 +1,41 @@
 "use client";
-import Link from "next/link";
+import styles from "./page.module.css";
+
+const departments = [
+	"Computer Science",
+	"IT",
+	"Software Engineering",
+	"Data Science",
+];
 
 export default function Page() {
-  return (
-    <main>
-      <h1>UniFlow</h1>
-      <p>Welcome to the university timetable generator!</p>
-      <div>
-        <button className="">
-          <Link href="/generate?department=Computer%20Science">Computer Science</Link>
-        </button>
-        <button className="">
-          <Link href="/generate?department=IT">IT</Link>
-        </button>
-        <button className="">
-          <Link href="/generate?department=Software%20Engineering">Software Engineering</Link>
-        </button>
-        <button className="">
-          <Link href="/generate?department=Data%20Science">Data Science</Link>
-        </button>
-      </div>
+	return (
+		<div className={styles.page}>
+			<main className={styles.main}>
+				<div className={styles.intro}>
+					<h1>UniFlow</h1>
+					<p>
+						Generate optimized university timetables with conflict
+						detection and venue management.
+					</p>
+				</div>
 
-      <p>Select a department to create a timetable.</p>
-    </main>
-  );
+				<div className={styles.ctas}>
+					{departments.map((dept) => (
+						<a
+							key={dept}
+							href={`/generate?department=${encodeURIComponent(dept)}`}
+							className={styles.ctaButton}
+						>
+							{dept}
+						</a>
+					))}
+				</div>
+
+				<p className={styles.subtitle}>
+					Select a department to create a new timetable
+				</p>
+			</main>
+		</div>
+	);
 }

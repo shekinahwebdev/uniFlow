@@ -1,0 +1,319 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-lg);
+	max-width: 100%;
+}
+
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.label {
+	font-weight: 500;
+	color: var(--color-text-primary);
+	font-size: 0.95rem;
+}
+
+.select,
+.input {
+	width: 100%;
+	font-size: 1rem;
+	padding: var(--spacing-sm) var(--spacing-md);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-md);
+	background-color: var(--color-surface);
+	color: var(--color-text-primary);
+	transition:
+		border-color var(--transition-fast),
+		box-shadow var(--transition-fast);
+}
+
+.select:focus,
+.input:focus {
+	outline: none;
+	border-color: var(--color-accent);
+	box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* Dynamic Course Form Styles */
+.coursesList {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+	padding: var(--spacing-md);
+	background-color: var(--color-surface);
+	border-radius: var(--border-radius-lg);
+	border: 1px solid var(--color-border);
+}
+
+.courseRow {
+	display: flex;
+	gap: var(--spacing-md);
+	align-items: flex-start;
+	padding: var(--spacing-md);
+	background-color: var(--color-background);
+	border-radius: var(--border-radius-md);
+	border: 1px solid var(--color-border);
+	transition: all var(--transition-fast);
+}
+
+.courseRow:hover {
+	border-color: var(--color-accent);
+	background-color: rgba(0, 102, 204, 0.02);
+}
+
+.courseIndex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	min-width: 40px;
+	background-color: var(--color-accent);
+	color: white;
+	border-radius: var(--border-radius-md);
+	font-weight: 600;
+	font-size: 1rem;
+	margin-top: var(--spacing-xs);
+}
+
+.courseInputs {
+	flex: 1;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--spacing-md);
+}
+
+.inputGroup {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+}
+
+.inputGroup label {
+	font-weight: 500;
+	color: var(--color-text-primary);
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: var(--color-text-secondary);
+}
+
+.inputGroup input {
+	width: 100%;
+	padding: var(--spacing-sm) var(--spacing-md);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-sm);
+	background-color: var(--color-surface);
+	color: var(--color-text-primary);
+	font-size: 0.95rem;
+	transition:
+		border-color var(--transition-fast),
+		box-shadow var(--transition-fast);
+}
+
+.inputGroup input:focus {
+	outline: none;
+	border-color: var(--color-accent);
+	box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.inputGroup input::placeholder {
+	color: var(--color-text-tertiary);
+}
+
+.removeButton {
+	padding: var(--spacing-sm) var(--spacing-md);
+	min-width: 40px;
+	height: 40px;
+	background-color: var(--color-surface);
+	color: var(--color-text-secondary);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-md);
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-weight: 600;
+	transition: all var(--transition-fast);
+	margin-top: var(--spacing-xs);
+}
+
+.removeButton:hover {
+	background-color: var(--color-error);
+	color: white;
+	border-color: var(--color-error);
+}
+
+/* Table styles (kept for backward compatibility) */
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-lg);
+	overflow: hidden;
+}
+
+.table th {
+	background-color: var(--color-background);
+	padding: var(--spacing-md);
+	text-align: left;
+	font-weight: 600;
+	border-bottom: 2px solid var(--color-border);
+	color: var(--color-text-primary);
+}
+
+.table td {
+	padding: var(--spacing-md);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.table tr:last-child td {
+	border-bottom: none;
+}
+
+.table input {
+	width: 100%;
+	padding: var(--spacing-sm) var(--spacing-md);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-sm);
+	font-size: 0.95rem;
+}
+
+.table input:focus {
+	outline: none;
+	border-color: var(--color-accent);
+	box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.buttonGroup {
+	display: flex;
+	gap: var(--spacing-md);
+	flex-wrap: wrap;
+	margin-top: var(--spacing-md);
+}
+
+.button {
+	padding: var(--spacing-sm) var(--spacing-lg);
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	border-radius: var(--border-radius-md);
+	background-color: var(--color-accent);
+	color: white;
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.button:hover:not(:disabled) {
+	background-color: var(--color-accent-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.button:active:not(:disabled) {
+	transform: translateY(0);
+}
+
+.button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.addButton {
+	padding: var(--spacing-sm) var(--spacing-lg);
+	font-size: 1rem;
+	font-weight: 500;
+	border: 2px solid var(--color-accent);
+	border-radius: var(--border-radius-md);
+	background-color: transparent;
+	color: var(--color-accent);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.addButton:hover {
+	background-color: rgba(0, 102, 204, 0.08);
+	transform: translateY(-2px);
+}
+
+.addButton:active {
+	transform: translateY(0);
+}
+
+.secondary {
+	background-color: var(--color-surface);
+	color: var(--color-accent);
+	border: 1px solid var(--color-accent);
+}
+
+.secondary:hover {
+	background-color: rgba(0, 102, 204, 0.08);
+}
+
+@media (max-width: 768px) {
+	.courseRow {
+		flex-direction: column;
+	}
+
+	.courseIndex {
+		align-self: center;
+	}
+
+	.courseInputs {
+		grid-template-columns: 1fr;
+	}
+
+	.buttonGroup {
+		flex-direction: column;
+	}
+
+	.button,
+	.addButton {
+		width: 100%;
+	}
+}
+
+@media (max-width: 640px) {
+	.form {
+		gap: var(--spacing-md);
+	}
+
+	.table {
+		font-size: 0.9rem;
+	}
+
+	.table th,
+	.table td {
+		padding: var(--spacing-sm);
+	}
+
+	.coursesList {
+		padding: var(--spacing-sm);
+	}
+
+	.courseRow {
+		padding: var(--spacing-sm);
+		gap: var(--spacing-sm);
+	}
+
+	.courseIndex {
+		width: 32px;
+		height: 32px;
+		font-size: 0.9rem;
+	}
+
+	.courseInputs {
+		gap: var(--spacing-sm);
+	}
+
+	.inputGroup label {
+		font-size: 0.75rem;
+	}
+
+	.inputGroup input {
+		font-size: 0.9rem;
+	}
+}
